@@ -1,11 +1,17 @@
 {
-  "name": "vendor/project",
-  "description": "",
+  "name": "8fold/php-filesystem",
+  "description": "A fluent API for navigating a local file system.",
   "type": "library",
   "license": "MIT",
-  "authors": [],
+  "authors": [
+    {
+      "name": "Josh Bruce",
+      "email": "josh@8fold.pro"
+    }
+  ],
   "require": {
-    "php": "^7.4||^8.0"
+    "php": "^7.4||^8.0",
+    "league/flysystem": "^1.1.5"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "^3.6",
@@ -14,6 +20,7 @@
   },
   "autoload": {
     "psr-4": {
+      "Eightfold\\FileSystem\\":"./src"
     }
   },
   "autoload-dev": {
