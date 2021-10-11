@@ -59,19 +59,6 @@ class Item
         return is_dir($this->thePath());
     }
 
-    public function doesExist(): bool
-    {
-        return file_exists($this->thePath());
-    }
-
-    /**
-     * @return string|false [description]
-     */
-    public function theMimeType()
-    {
-        return mime_content_type($this->thePath());
-    }
-
     /**
      * @return array<string> [description]
      */

@@ -10,18 +10,16 @@ beforeEach(function () {
 });
 
 test('File system can create file', function() {
-    $sut = Item::create(__DIR__)->append('data', '.write', 'file.md')
-        ->save('content');
 
     expect(
-        $sut->doesExist()
+        Item::create(__DIR__)->append('data', '.write', 'file.md')
+            ->save('content')->doesExist()
     )->toBeTrue();
 
     expect(
-        $sut->content()
-    )->toBe(
-        'content'
-    );
+        Item::create(__DIR__)->append('data', '.write', 'file2.md')
+            ->didSave('content2')
+    )->toBeTrue();
 });
 
 test('File system has expected content', function() {
@@ -39,6 +37,16 @@ test('File system has expected content', function() {
         __DIR__ ."/data/link.md",
         __DIR__ ."/data/table.md",
     ]);
+
+    expect(
+        Item::create(__DIR__)->append('data', 'link.md')->content()
+    )->toBe(<<<md
+        [Something](https://github.com/8fold/php-shoop-extras)
+
+        <a href="https://github.com/8fold/php-shoop-extras">Stripped</a>
+
+        md
+    );
 });
 
 test('File system can get mime type', function() {

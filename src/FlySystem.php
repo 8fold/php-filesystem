@@ -78,6 +78,20 @@ trait FlySystem
         return $this;
     }
 
+    public function doesExist(): bool
+    {
+        return $this->fileSystem()->has($this->thePath());
+        // return file_exists($this->thePath());
+    }
+
+    /**
+     * @return string|false [description]
+     */
+    public function theMimeType()
+    {
+        return $this->fileSystem()->getMimetype($this->thePath());
+    }
+
     public function didSave(string $content = ''): bool
     {
         return $this->save($content)->doesExist();

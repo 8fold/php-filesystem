@@ -4,6 +4,8 @@ File System is for manipulating a local file system.
 
 The primary interface is designed to simplify traversing fully-qualified paths. The secondary interface allows for reading, writing, and listing items based on the path.
 
+Each path is represented by an instance of the `Item` class.
+
 ## Installation
 
 {how does one install the product}
@@ -40,7 +42,7 @@ use Eightfold\FileSystem\FileSystem;
 
   public function targetContent(): string
   {
-	return FileSystem::create(__DIR__)
+	return Item::create(__DIR__)
       ->up(2)->append('data', 'target.md')
       ->content();
   }
