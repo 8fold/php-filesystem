@@ -22,7 +22,7 @@ class Item
 
     public function up(int $levels = 1): Item
     {
-        $pp = $this->pathParts();
+        $pp = $this->thePathParts();
         $pp = array_slice($pp, 0, -1 * $levels);
 
         $this->path = $this->pathFromParts($pp);
@@ -34,7 +34,7 @@ class Item
 
     public function append(string ...$parts): Item
     {
-        $pp = array_merge($this->pathParts(), $parts);
+        $pp = array_merge($this->thePathParts(), $parts);
 
         return Item::create(
             $this->pathFromParts($pp)
