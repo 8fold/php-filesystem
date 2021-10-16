@@ -62,7 +62,7 @@ class Item
     /**
      * @return array<string> [description]
      */
-    public function pathParts(): array
+    public function thePathParts(): array
     {
         return explode('/', $this->thePath());
     }
