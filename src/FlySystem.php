@@ -26,6 +26,8 @@ trait FlySystem
      * If the path is to a file, it returns the content of the file; otherwise,
      * returns list of files and folders within a folder.
      *
+     * @todo Return seems like too many disparate types.
+     *
      * @param  bool|boolean $includeFiles   [description]
      * @param  bool|boolean $includeFolders [description]
      * @return string|bool|boolean|array<Item>        [description]
